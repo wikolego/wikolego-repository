@@ -1,0 +1,24 @@
+********************************************************************************
+*      Signed document issued by Sphere Online Judge  (http://www.spoj.com)      
+********************************************************************************
+
+----- BEGIN OF DATA -----
+Submissions by [name_of_user] in contest [SPOJ].  DoI: 2013-03-28 06:42:28.
+/------------------------------------------------------------------------------\
+|   ID    |        DATE         |  PROBLEM  |  RESULT   | TIME  |  MEM   | LNG |
+|---------|---------------------|-----------|-----------|-------|--------|-----|
+| 2943759 | 2009-11-09 15:58:14 |   RNO_DOD |        AC |  0.00 |   1996 | PAS |
+| 2943749 | 2009-11-09 15:54:25 |   RNO_DOD |        CE |  0.00 |      0 |   C |
+| 2943742 | 2009-11-09 15:53:17 |   RNO_DOD |        CE |  0.00 |      0 |   C |
+\------------------------------------------------------------------------------/
+
+----- SIGNATURE -----
+EbrxPBxKmW8ClbqC+8GjYCdspKMB9kqtj8seGLVtM6oee4q9ND+4ObGUPttul24rlY1FrYXUc9zp
+ewqTTe524YS+qJJDQaJeC1TlIi5o2/cYSzknJ/txh2UQqZ8d+iuE8v14N34DkOtIZrsY5pbCuqrc
+OQYPipmGq90E5kvWS+I=
+
+----- END OF DATA -----
+
+********************************************************************************
+Disclaimer:       Document for internal use only. No liability shall be assumed.
+********************************************************************************
