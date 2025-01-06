@@ -2,7 +2,7 @@
 
 ## Treść
 
-Sprawdzić wartości własne, wektory własne oraz diagonalizowalność macierzy:
+Wyznacz wartości własne i wektory własne oraz sprawdź diagonalizowalność macierzy
 
 $$
 \begin{bmatrix}
@@ -179,14 +179,14 @@ $$
 z_2
 \begin{bmatrix}
     \frac{11}{15} \\
-    -\frac{2}{5} \\
+    -\frac{6}{15} \\
     1
 \end{bmatrix}
 =
 \frac{1}{15}z_2
 \begin{bmatrix}
     11 \\
-    -2 \\
+    -6 \\
     15
 \end{bmatrix}
 $$
@@ -198,14 +198,28 @@ Dla lambda = 6
 $$
 \begin{bmatrix}
     -5 & 2 & 3 \\
-    0 & -1 & 0 \\
+    0 & -2 & 0 \\
     0 & 5 & 0
 \end{bmatrix}
 
 \begin{array}{l}
     \\
-    w_2' = (-1)w_2 \\
-    w_3' = w_3 + 5w_2
+    w_2' = w_3 + 2*w_2 \\
+    w_3' = w_2
+\end{array}
+$$
+
+$$
+\begin{bmatrix}
+    -5 & 2 & 3 \\
+    0 & 1 & 0 \\
+    0 & -2 & 0
+\end{bmatrix}
+
+\begin{array}{l}
+    \\
+    \\
+    w_3' = w_3 + 2*w_2
 \end{array}
 $$
 
