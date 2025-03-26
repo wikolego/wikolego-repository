@@ -1,17 +1,3 @@
-voivodeship_name,salary
-dolnośląskie,6562.04
-kujawsko-pomorskie,5633.52
-lubelskie,5646.97
-lubuskie,5706.47
-łódzkie,5903.19
-małopolskie,6411.04
-mazowieckie,7508.56
-opolskie,5835.92
-podkarpackie,5452.12
-podlaskie,5742.12
-pomorskie,6297.51
-śląskie,6388.82
-świętokrzyskie,5505.49
-warmińsko-mazurskie,5427.81
-wielkopolskie,5789.84
-zachodniopomorskie,5809.68
+version https://git-lfs.github.com/spec/v1
+oid sha256:8064886e75fc526c94d4501038ec3df12810a11bb188e60161f45d55bb127964
+size 362

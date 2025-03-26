@@ -1,11 +1,3 @@
-in,out,kfold
-11,1,0
-12,2,0
-13,3,0
-14,4,0
-15,5,0
-16,3,1
-17,5,1
-18,2,1
-19,1,1
-20,4,1
+version https://git-lfs.github.com/spec/v1
+oid sha256:af8f4c40ad380d835aed3e333d660fd51ffd4c8cd0a6543405b484564c15948a
+size 85

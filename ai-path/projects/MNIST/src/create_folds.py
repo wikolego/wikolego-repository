@@ -3,28 +3,18 @@ import config
 import pandas as pd
 from sklearn import model_selection
 
-def change(data: pd.DataFrame):
-    data['kfold'] = -1
-
-    # print(data)
-    # print(data.columns)
+def change(df: pd.DataFrame):
+    df['kfold'] = -1
     
-    kf = model_selection.StratifiedKFold(n_splits=2)
+    kf = model_selection.StratifiedKFold(n_splits=config.NO_FOLDS, shuffle=True)
+    label = df['label'].values
 
-    out = data['out'].values
-    print(out)
+    for index, (trn_, val_) in enumerate(kf.split(X=df, y=label)):
+        df.loc[val_, 'kfold'] = index
 
-    # for fold, (trn_, val_) in enumerate(kf.split(X=df)):
-    #     df.loc[val_, 'kfold'] = fold
+df = pd.read_csv(config.TRAINING_FILE)
 
-    for index, (trn_, val_) in enumerate(kf.split(X=df, y=out)):
-        data.loc[val_, 'kfold'] = index
-        # print(trn_, val_)
-    
-    # print(kf)
-    # print(data)
-
-df = pd.read_csv(config.TRAINING_FILE_TEST_IN)
 print(df)
 change(df)
-df.to_csv(config.TRAINING_FILE_TEST_OUT, index=False)
+
+df.to_csv(config.TRAINING_FILE_FOLDS, index=False)
