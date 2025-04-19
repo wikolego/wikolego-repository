@@ -13,7 +13,7 @@ if config.RANDOMIZE_DATA == True:
     df["id"] = df.index
 
 # Make k-folds
-folds_model = model_selection.StratifiedKFold(n_splits=config.SPLITS)
+folds_model = model_selection.StratifiedKFold(n_splits=config.FOLDS_COUNT)
 
 for index, (rest, selected) in enumerate(folds_model.split(X=df, y=df["label"])):
     # print(f"{x}. {fir} - {sec}")

@@ -1,5 +1,4 @@
 # Import required libraries
-import config
 import pandas as pd
 from mlxtend.data import loadlocal_mnist
 

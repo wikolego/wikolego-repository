@@ -1,6 +1,5 @@
 # Import required libraries
 import pandas as pd
-# import numpy as np
 from sklearn import metrics
 
 import config
@@ -38,7 +37,7 @@ if __name__ == "__main__":
         model = model_dispatcher.models[model_name]
 
         # Test single model on different folds
-        for fold in range(config.SPLITS):
+        for fold in range(config.FOLDS_COUNT):
             
             # Initialize train dataframe and test dataframe
             df_train = df.loc[df["kfold"] != fold, :].reset_index(drop=True)

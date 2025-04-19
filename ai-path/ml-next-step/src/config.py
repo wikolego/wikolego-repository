@@ -5,4 +5,4 @@ BASIC_DATA_PATH = "../data/train.csv"
 NEW_DATA_PATH = "../data/train_new.csv"
 
 RANDOMIZE_DATA = True
-SPLITS = 5
+FOLDS_COUNT = 5
