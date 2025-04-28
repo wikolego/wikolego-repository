@@ -1,64 +1,60 @@
 # Import required libraries and packages
-import matplotlib.pyplot as plt
 import pandas as pd
 import tensorflow as tf
 
 import config
 
-print(tf.__version__)
+# Main function
+if __name__ == "__main__":
 
-# Load MNIST data
-dataframe = pd.read_csv(config.NEW_DATA_PATH)
+    # Load MNIST data
+    df = pd.read_csv(config.NEW_DATA_PATH)
+    df = df.drop(columns=["id"])
 
-# initialize training data
-df = dataframe.drop(columns=["id"])
+    # Go through all folds
+    for fold in range(config.FOLDS_CNT):
 
-df_train = df.loc[df["kfold"] != 1, :]
-df_test = df.loc[df["kfold"] == 1, :]
+        # initialize training and test data
+        df_train = df.loc[df["kfold"] != fold, :]
+        df_test = df.loc[df["kfold"] == fold, :]
 
-df_train = df_train.drop(columns=["kfold"])
-df_test = df_test.drop(columns=["kfold"])
+        df_train = df_train.drop(columns=["kfold"])
+        df_test = df_test.drop(columns=["kfold"])
 
-# Initialize model
-# model = tf.keras.models.Sequential([
-#     tf.keras.layers.Dense(28 * 28), # input layer
-#     tf.keras.layers.Dense(64, activation="relu"),
-#     tf.keras.layers.Dense(64, activation="relu"),
-#     tf.keras.layers.Dense(10) # output layer
-# ])
+        x_train = df_train.drop(columns=["label"]).values
+        y_train = df_train.loc[:, "label"].values
+        
+        x_test = df_test.drop(columns=["label"]).values
+        y_test = df_test.loc[:, "label"].values
 
-model = tf.keras.models.Sequential([
-    # tf.keras.Input(shape=(None, None, 28 * 28)), # input layer
-    tf.keras.layers.Dense(64, activation="relu", input_shape=(28 * 28, )), # input layer
-    tf.keras.layers.Dropout(0.2),
-    tf.keras.layers.Dense(64, activation="relu"),
-    tf.keras.layers.Dropout(0.2),
-    tf.keras.layers.Dense(10) # output layer
-])
+        # Initialize model
+        model = tf.keras.models.Sequential([
+            tf.keras.layers.Dense(64, activation="relu", input_shape=(len(x_train[1]), )), # input layer
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(64, activation="relu"),
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(64, activation="relu"),
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(10, activation="softmax") # output layer
+        ])
 
-# Compile model
-model.compile(
-    optimizer="Adam",
-    loss="binary_crossentropy",
-    metrics=["accuracy"]
-)
+        # Compile model
+        model.compile(
+            optimizer="Adam",
+            loss="SparseCategoricalCrossentropy",
+            metrics=["SparseCategoricalAccuracy"]
+        )
 
-# X_data = df_train.drop(columns=["label"])
+        # Fit model
+        result = model.fit(
+            x=x_train,
+            y=y_train,
+            epochs=config.EPOCHS_CNT,
+            validation_data=(x_test, y_test),
+            # verbose=0
+        )
 
-# print(len(X_data.columns))
-
-# exit()
-
-# Fit model
-result = model.fit(
-    df_train.drop(columns=["label"]).values,
-    df_train.loc[:, "label"].values,
-    epochs=10
-)
-
-# Predict and print predictions
-predictions = max(result.history["accuracy"])
-print(predictions)
-
-plt.plot(result.history["accuracy"])
-plt.show()
+        # Predict and print predictions
+        model_accuracy = max(result.history["sparse_categorical_accuracy"])
+        print(f"accuracy: {model_accuracy}")
+        # print(result.history)
