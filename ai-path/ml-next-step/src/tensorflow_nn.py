@@ -29,12 +29,9 @@ if __name__ == "__main__":
 
         # Initialize model
         model = tf.keras.models.Sequential([
-            tf.keras.layers.Dense(64, activation="relu", input_shape=(len(x_train[1]), )), # input layer
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(64, activation="relu"),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(64, activation="relu"),
-            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.InputLayer(shape=(28*28, )), # input layer
+            tf.keras.layers.Dense(256, activation="relu"),
+            tf.keras.layers.Dense(256, activation="relu"),
             tf.keras.layers.Dense(10, activation="softmax") # output layer
         ])
 
@@ -49,6 +46,7 @@ if __name__ == "__main__":
         result = model.fit(
             x=x_train,
             y=y_train,
+            batch_size=64,
             epochs=config.EPOCHS_CNT,
             validation_data=(x_test, y_test),
             # verbose=0
