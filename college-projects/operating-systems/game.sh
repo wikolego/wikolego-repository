@@ -1,5 +1,10 @@
 #!/bin/bash
 
+path="/usr/share/dict/words"
+
+
+
+
 # arguments_array="$@"
 letters_points=(1 3 3 2 1 4 2 4 1 8 5 1 3 1 1 3 10 1 1 1 1 4 4 8 4 10)
 
@@ -9,32 +14,47 @@ letters_points=(1 3 3 2 1 4 2 4 1 8 5 1 3 1 1 3 10 1 1 1 1 4 4 8 4 10)
 a_index=$(printf "%d" "'a")
 big_a_index=$(printf "%d" "'A")
 
-
-# letter='a'
-
-# int_letter=$(printf "%d" "'$letter")
-# echo $int_letter
-
-# if [ $int_letter -ge $a_index ]
-# then
-#     echo "small letter"
-# else
-#     echo "big letter"
-# fi
-
-
 # converting uppercase letters in string to lowercase letters
 
-str="fdASFd"
+str="abcdz"
 
-echo $str | tr '[:upper:]' '[:lower:]'
+new_string=$(echo $str | tr '[:upper:]' '[:lower:]')
+
+echo $new_string
 
 
 # walking through each of the letters in string
 
-# $characters_array=($(echo "smth" | grep -o .))
+# echo $new_string | grep -o .
 
-for c in $characters_array
+# $characters_array=($(echo $new_string | grep -o .))
+
+characters_array=()
+
+for ((i=0; i<${#new_string}; i++))
 {
-    echo $c
+    characters_array+=("${new_string:$i:1}")
 }
+
+# echo $characters_array
+
+res=0
+
+for c in "${characters_array[@]}"
+{
+    # echo "$c, "
+    ascii_value=$(printf "%d" "'$c")
+    # echo $ascii_value
+
+    index=$((ascii_value-97))
+    # echo $index
+
+    val=${letters_points[$index]}
+    # echo $val
+
+    res=$((res+val))
+
+    # letters_points
+}
+
+echo $res
