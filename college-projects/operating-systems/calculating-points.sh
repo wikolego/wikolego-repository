@@ -22,12 +22,7 @@ new_string=$(echo $str | tr '[:upper:]' '[:lower:]')
 
 echo $new_string
 
-
 # walking through each of the letters in string
-
-# echo $new_string | grep -o .
-
-# $characters_array=($(echo $new_string | grep -o .))
 
 characters_array=()
 

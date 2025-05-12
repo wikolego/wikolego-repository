@@ -1,3 +1,3 @@
-dos2unix game.sh
+dos2unix ./game.sh
 
 ./game.sh
