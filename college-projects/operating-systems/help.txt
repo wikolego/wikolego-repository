@@ -1,0 +1,9 @@
+Okay, so y noob, and y don't know anything about our famous program.
+Usage: scrabble [OPTION]... WORD...
+Get scrabble points of WORD(s).
+
+Options:
+-h  get help of this command
+-d  don't display points of WORD(s), if it does not exists in dictionary
+
+Okay, so now y should not be a noob. Go away.

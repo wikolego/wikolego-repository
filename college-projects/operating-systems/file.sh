@@ -109,49 +109,46 @@ else
     read words
 fi
 
-# Write words
-# for word in "${words[@]}"
-# do
-#     echo $word
-# done
-
-
-
-# 0 - show help
-# 1 - otherwise
-h_opt=1
-
-# 0 - skip words, which do not exist in dictionary
-# 1 - otherwise
-d_opt=1
+skipp=1
 
 
 # Write words
 for word in "${words[@]}"
 do
     if [ "$word" = "-h" ]; then
-        h_opt=0
         continue
     fi
 
     if [ "$word" = "-d" ]; then
-        d_opt=0
+        skipp=0
         continue
     fi
+
+    echo $word
 done
 
+# Loop through all words and calculate score
+for word in "${words[@]}"
+do
+    # ((i++))
 
-if [ $h_opt -eq 0 ];
-then
-    cat ./help.txt
-else
-    # Loop through all words and calculate score
-    for word in "${words[@]}"
-    do
-        if [ "$word" = "-h" ] || [ "$word" = "-d" ]; then
-            continue
-        fi
+    # echo $i
 
-        func1 $word $d_opt
-    done
-fi
+    # if [ $i -ge 10 ]
+    # then
+    #     break
+    # fi
+
+    if [ "$word" = "-h" ]; then
+        echo "help"
+        continue
+    fi
+    if [ "$word" = "-d" ]; then
+        continue
+    fi
+
+    
+    func1 $word $skipp
+
+done
+
