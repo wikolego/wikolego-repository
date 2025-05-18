@@ -72,58 +72,50 @@ d_opt=1
 # 0 - dictionary exists, 1 - otherwise
 dict_exists=0
 
-if [ $# -ge 1 ]; then
-    words=()
-    
-    i=0
-    while [ $i -lt $# ]; do
-    	i=$((i+1))
-    	arg="${!i}"
-    	case "$arg" in
-    		-h)
-    			h_opt=0
-    			;;
-    		-d)
-    			d_opt=0
-    			;;
-    		-f)
+words=()
 
-    			# Check if next argument is a path
-                if [ $i -lt $# ]; then
-                        i=$((i+1))
-                        dictionary_path="${!i}"
+i=0
+while [ $i -lt $# ]; do
+    i=$((i+1))
+    arg="${!i}"
+    case "$arg" in
+        -h)
+            h_opt=0
+            ;;
+        -d)
+            d_opt=0
+            ;;
+        -f)
 
-                        # Test if dictionary exist
-
-                        if [ ! -f "$dictionary_path" ]; then
-                            echo "Uwaga: Słownik $dictionary_path nie istnieje." 
-                            exit 1
-                        fi
-                        
-                else
-                    echo "Błąd: Brak ścieżki do słownika po fladze -f"
-                    exit 1
-                fi
-
-                dict_exists=1
-
-                ;;
-            -*)
-                echo "Nieznana flaga: $arg"
-                echo "Użyj -h aby uzyskać pomoc"
+            # Check if next argument is a path
+            if [ $i -lt $# ]; then
+                i=$((i+1))
+                dictionary_path="${!i}"
+            else
+                echo "Błąd: Brak ścieżki do słownika po fladze -f"
                 exit 1
-                ;;
-            *)
-                # If not a flag
-                words+=("$arg")
-                ;;
-	    esac
-    done
-else
-    #standard input
-    read -a words
-fi
+            fi
 
+            dict_exists=1
+
+            ;;
+        -*)
+            echo "Błąd: Nieznana flaga: $arg"
+            echo "Użyj -h aby uzyskać pomoc"
+            exit 1
+            ;;
+        *)
+            # If not a flag
+            words+=("$arg")
+            ;;
+    esac
+done
+
+# Test if dictionary exist
+if [ ! -f "$dictionary_path" ]; then
+    echo "Błąd: Słownik $dictionary_path nie istnieje." 
+    exit 1
+fi
 
 # Display only help, if added -h
 if [ $h_opt -eq 0 ]; then
@@ -134,12 +126,6 @@ fi
 # Read word, if input does not contain any words
 if [ ${#words[@]} -eq 0 ]; then
     read -a words
-fi
-
-# Check dictionary existance
-if [ $dict_exists -eq 0 ] && [ ! -e "/usr/share/dict/words" ]; then
-    echo "Domyślny słownik /usr/share/dict/words nie istnieje"
-    exit 1
 fi
 
 # Loop through all words and calculate score
