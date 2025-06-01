@@ -244,3 +244,15 @@ Wypisuje jakieś tam procesy
 | `-f`     | pełny format atrybutów                      |
 | `-l`     | długa lista atrybutów                       |
 | `-x`     | procesy, które nie są związane z terminalem |
+
+---
+
+### kill
+
+Usuwanie procesów
+
+kill [-nazwa lub nr sygnalu] procid
+
+---
+
+### tytuł
