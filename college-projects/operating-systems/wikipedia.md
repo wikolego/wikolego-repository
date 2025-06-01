@@ -168,8 +168,10 @@ find dir options string
 
 ---
 
-- name - big\small letters different
-- iname - big\small letters same
+| Option   | Description                          |
+| -------- | ------------------------------------ |
+| `-name`  | Bierze pod uwagę wielkości liter     |
+| `-iname` | Nie bierze pod uwagę wielkości liter |
 
 ---
 
@@ -177,13 +179,19 @@ find dir options string
 
 ---
 
-- mtime - modification time (zmiana zawartosci pliku)
-- atime - access time (odczyt, zapis lub wykonanie)
-- ctime - change status (eg. change access rights)
+| Option   | Description                               |
+| -------- | ----------------------------------------- |
+| `-mtime` | Ostatni czas zmiany wartości pliku        |
+| `-atime` | Ostatni czas odczytu, zpisu lub wykonania |
+| `-ctime` | Ostatni czas zmiany praw dostępu          |
 
 ---
 
-- mmin, amin, cmin - to samo, co time tylko, że w minutach
+| Option  | Description                            |
+| ------- | -------------------------------------- |
+| `-mmin` | To samo, co `-mtime`, tylko w minutach |
+| `-amin` | To samo, co `-atime`, tylko w minutach |
+| `-cmin` | To samo, co `-ctime`, tylko w minutach |
 
 ---
 
@@ -191,11 +199,12 @@ find dir options string
 
 ---
 
-- size - rozmiar pliku.\
-  "\+" - większy\
-  "\-" - mniejszy
-- k - kilo bajty
-- c - bajty
+| Option     | Description                    |
+| ---------- | ------------------------------ |
+| `-size +X` | Rozmiar pliku większy niż `X`  |
+| `-size -X` | Rozmiar pliku mniejszy niż `X` |
+| `-size Xk` | Rozmiar pliku w kilobajtach    |
+| `-size Xc` | Rozmiar pliku w bajtach        |
 
 ---
 
@@ -216,11 +225,11 @@ find dir options string
 
 Warunki złożone
 
-| Option      | Description |
-| ----------- | ----------- |
-| !           | negacja     |
-| -o          | lub         |
-| \\( ... \\) | grupowanie  |
+| Option    | Description |
+| --------- | ----------- |
+| `!`       | negacja     |
+| `-o`      | lub         |
+| `( ... )` | grupowanie  |
 
 ---
 
@@ -247,12 +256,64 @@ Wypisuje jakieś tam procesy
 
 ---
 
+### pstree
+
+Hierarchia procesów
+
+---
+
+### top
+
+users, proc, CPU, memory statistics, ps
+
+---
+
 ### kill
 
 Usuwanie procesów
 
 kill [-nazwa lub nr sygnalu] procid
 
+| Option | Number | Description |
+| ------ | ------ | ----------- |
+| HUP    | 1      | hung up     |
+| TERM   | 2      | terminate   |
+| KILL   | 9      | kill        |
+
 ---
 
-### tytuł
+### cat
+
+Edytuje plik. Ma różne opcje.
+
+cat file\
+cat file1 > file2\
+cat file1 >> file2
+
+| Option       | Description                                                |
+| ------------ | ---------------------------------------------------------- |
+| `-n`         | Dodaje do lini indeksy od 1                                |
+| `<< keyword` | Pobiera kolejne linie tekstu, dopóki nie wystąpi `keyword` |
+| `-`          | Czyta z stdin                                              |
+
+---
+
+### head, tail
+
+Wybiera linijki rozpoczynając od przodu \\ tyłu
+
+| Option | Description |
+| ------ | ----------- |
+| `-n`   | Ilość lini  |
+
+---
+
+### tee
+
+Pisze output do dodatkowo wybranych plików
+
+| Option | Description                     |
+| ------ | ------------------------------- |
+| `-a`   | Dopisuje wyniki do danego pliku |
+
+---
