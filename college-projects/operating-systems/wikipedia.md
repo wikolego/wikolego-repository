@@ -2,7 +2,9 @@
 
 Now y are reading Wikipedia about operating systems
 
-## Komendy
+# Komendy
+
+Now y will be looking at commands
 
 ### 2>/dev/null
 
@@ -50,16 +52,22 @@ Też edytor plików, tyle że lepszy (bo u mnie na lapku jest XD)
 
 ### tree
 
-- a - wszystkie
-- d - tylko katalogi
+Wypisuje drzewko katalogów i plików
+
+| Option | Description    |
+| ------ | -------------- |
+| `-a`   | Wszystkie      |
+| `-d`   | Tylko katalogi |
 
 ---
 
 ### ls
 
-- a - wszystko
-- l - w formie listy
-- i - pokazuje numer seryjny pliku
+| Option | Description                  |
+| ------ | ---------------------------- |
+| `-a`   | Wszystko                     |
+| `-l`   | W formie listy               |
+| `-i`   | Pokazuje numer seryjny pliku |
 
 ---
 
@@ -77,7 +85,11 @@ Aktualny katalog
 
 ### mkdir\rmdir
 
-- p - tworzy\usuwa brakujące katalogi nadrzędne
+Tworzy\usuwa katalogi
+
+| Option | Description                               |
+| ------ | ----------------------------------------- |
+| `-p`   | Tworzy\usuwa brakujące katalogi nadrzędne |
 
 ---
 
@@ -85,12 +97,14 @@ Aktualny katalog
 
 Kopiuje pliki
 
-cp arg1, arg2, ..., destination folder\
-cp -r katalog1 katalog2
+`cp arg1, arg2, ..., destination folder\`
+`cp -r katalog1 katalog2`
 
-- r - rekurencyjnie
-- i - pyta przed nadpisywaniem
-- n - nie nadpisuje
+| Option | Description              |
+| ------ | ------------------------ |
+| `-r`   | Rekurencyjnie            |
+| `-i`   | Pyta przed nadpisywaniem |
+| `-n`   | Nie nadpisuje            |
 
 ---
 
@@ -98,9 +112,11 @@ cp -r katalog1 katalog2
 
 Usuwa pliki
 
-- r - rekurencyjnie (hard)
-- i - pyta przed nadpisywaniem
-- n - nie nadpisuje
+| Option | Description              |
+| ------ | ------------------------ |
+| `-r`   | Rekurencyjnie            |
+| `-i`   | Pyta przed nadpisywaniem |
+| `-n`   | Nie nadpisuje            |
 
 ---
 
@@ -108,34 +124,43 @@ Usuwa pliki
 
 Przesuwa pliki
 
-- i - pyta przed nadpisywaniem
-- n - nie nadpisuje
+| Option | Description              |
+| ------ | ------------------------ |
+| `-i`   | Pyta przed nadpisywaniem |
+| `-n`   | Nie nadpisuje            |
 
 ---
 
 ### Wzorce w nazwach plików
 
-- \* - wiele
-- ? - jeden znak
-- [...] - znaki
-- [^...] - nie znaki
+| Option   | Description                              |
+| -------- | ---------------------------------------- |
+| `*z`     | Wiele wyrażeń `z` (znak, lub znaki)      |
+| `?z`     | Jeden znaków                             |
+| `[...]`  | Wszystkie znaki zawarte w nawiasach      |
+| `[^...]` | Wszystkie znaki, oprócz tych w nawiasach |
 
-lista wzorców oddzielonych znakiem |
+Elementy listy wzorców muszą być oddzielone znakiem `|`
 
-- ? - zero lub jedno wystąpienie
-- \* - zero lub więcej
-- \+ - jedno lub więcej
-- @ - jeden z podanych wzorców
-- ! - wszystko oprócz podanych wzorców
+| Option | Description                      |
+| ------ | -------------------------------- |
+| `?z`   | Zero lub jedno wystąpienie       |
+| `*z`   | Zero lub więcej                  |
+| `+z`   | Jedno lub więcej                 |
+| `@`    | Jeden z podanych wzorców         |
+| `!`    | Wszystko oprócz podanych wzorców |
 
 ---
 
 ### ln
 
 Tworzy dowiązanie twarde do jakiegoś pliku, albo katalogu
-ln cel nazwa_linku
 
-- s - dowiązanie miękkie
+`ln cel nazwa_linku`
+
+| Option | Description        |
+| ------ | ------------------ |
+| `-s`   | Dowiązanie miękkie |
 
 ---
 
@@ -154,7 +179,9 @@ a = ugo
 
 Zmienia właściciela\grupę plików\katalogów
 
-- R - rekursywnie
+| Option | Description |
+| ------ | ----------- |
+| `-R`   | Rekursywnie |
 
 ---
 
@@ -162,7 +189,7 @@ Zmienia właściciela\grupę plików\katalogów
 
 Wyszukuje wg wzorca
 
-find dir options string
+`find dir options string`
 
 #### Options
 
@@ -225,11 +252,11 @@ find dir options string
 
 Warunki złożone
 
-| Option    | Description |
-| --------- | ----------- |
-| `!`       | negacja     |
-| `-o`      | lub         |
-| `( ... )` | grupowanie  |
+| Option  | Description |
+| ------- | ----------- |
+| `!`     | negacja     |
+| `-o`    | lub         |
+| `(...)` | grupowanie  |
 
 ---
 
@@ -238,7 +265,7 @@ Warunki złożone
 Pozwalają na wykonanie komendy dla znalezionych plików.\
 `-ok` pyta zgodę, a `-exec` nie
 
-find ... -exec\ok jakas_komenda{} \;
+`find ... -exec\-ok jakas_komenda{} \;`
 
 ---
 
@@ -272,7 +299,7 @@ users, proc, CPU, memory statistics, ps
 
 Usuwanie procesów
 
-kill [-nazwa lub nr sygnalu] procid
+`kill [-nazwa lub nr sygnalu] procid`
 
 | Option | Number | Description |
 | ------ | ------ | ----------- |
@@ -286,9 +313,9 @@ kill [-nazwa lub nr sygnalu] procid
 
 Edytuje plik. Ma różne opcje.
 
-cat file\
-cat file1 > file2\
-cat file1 >> file2
+`cat file`\
+`cat file1 > file2`\
+`cat file1 >> file2`
 
 | Option       | Description                                                |
 | ------------ | ---------------------------------------------------------- |
@@ -300,7 +327,7 @@ cat file1 >> file2
 
 ### head, tail
 
-Wybiera linijki rozpoczynając od przodu \\ tyłu
+Wybiera linijki rozpoczynając od przodu\tyłu
 
 | Option | Description |
 | ------ | ----------- |
@@ -317,3 +344,12 @@ Pisze output do dodatkowo wybranych plików
 | `-a`   | Dopisuje wyniki do danego pliku |
 
 ---
+
+### sort
+
+Coś tam sortuje
+
+| Option  | Description                                       |
+| ------- | ------------------------------------------------- |
+| `-n`    | Ciągi znaków z cyframi interpretowane jako liczby |
+| `-kX,X` | `k`-ta kolumna                                    |
