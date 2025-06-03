@@ -352,4 +352,29 @@ Coś tam sortuje
 | Option  | Description                                       |
 | ------- | ------------------------------------------------- |
 | `-n`    | Ciągi znaków z cyframi interpretowane jako liczby |
+| `-f`    | Pomiń wielkości liter                             |
+| `-r`    | Sortowanie na odwrót                              |
 | `-kX,X` | `k`-ta kolumna                                    |
+
+---
+
+### uniq
+
+Usuwa sąsiednie, powtarzające się linie
+Z `-d` duplikaty (I dunno man)
+
+---
+
+### wc
+
+Policzenie liń\słów\znaków
+
+| Option | Description   |
+| ------ | ------------- |
+| `-l`   | Liczba liń    |
+| `-w`   | Liczba słów   |
+| `-c`   | Liczba znaków |
+
+---
+
+### 
