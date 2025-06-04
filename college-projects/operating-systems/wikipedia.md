@@ -377,4 +377,33 @@ Policzenie liń\słów\znaków
 
 ---
 
-### 
+### tr
+
+Zmienia pewne znaki na inne
+
+`tr 'inp_ciag' 'out_ciag'`
+
+| Option | Description                              |
+| ------ | ---------------------------------------- |
+| `-d`   | Usuwa znaki, zamiast ich zmieniać        |
+| `-s`   | Zmienia powtórzenia znaków na jeden znak |
+
+---
+
+### cut
+
+Wybiera tylko pewne kolumny
+
+| Option | Description                |
+| ------ | -------------------------- |
+| `-f`   | Indeks kolumn do usunięcia |
+
+---
+
+# Okej, przygotuj się na grep
+
+### grep
+
+Komenda
+
+---
