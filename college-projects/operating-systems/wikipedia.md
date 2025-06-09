@@ -28,7 +28,7 @@ Wyświetla informacje, kto jest zalogowany
 
 ### id
 
-Wyświelta identyfikatory użytkownika i grupy
+Wyświetla identyfikatory użytkownika i grupy
 
 ---
 
@@ -191,8 +191,6 @@ Wyszukuje wg wzorca
 
 `find dir options string`
 
-#### Options
-
 ---
 
 | Option   | Description                          |
@@ -202,6 +200,8 @@ Wyszukuje wg wzorca
 
 ---
 
+- maxdepth - maksymalne zagłębienie
+- mindepth - minimalne zagłębienie
 - type - typy plików (np. d - directory)
 
 ---
@@ -394,16 +394,8 @@ Zmienia pewne znaki na inne
 
 Wybiera tylko pewne kolumny
 
-| Option | Description                |
-| ------ | -------------------------- |
-| `-f`   | Indeks kolumn do usunięcia |
-
----
-
-# Okej, przygotuj się na grep
-
-### grep
-
-Komenda
+| Option       | Description              |
+| ------------ | ------------------------ |
+| `-f indeksy` | Indeksy wybranych kolumn |
 
 ---
